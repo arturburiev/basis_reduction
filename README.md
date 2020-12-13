@@ -9,8 +9,17 @@ python3 -m pip install basis_reduction
 
 ```python
 import basis_reduction.basis_reduction as basis_reduction
-import basis_reduction.basis_reduction as br
+# or import basis_reduction.basis_reduction as br
 
+reduced_basis_gaussian = basis_reduction.gaussian_reduction([[3, 1], [2, 2]])
+
+print(reduced_basis_gaussian)
+# [array([2, 1, 0]), array([1, 2, 3])]
+
+```
+
+
+```python
 reduced_basis_lll = basis_reduction.lll_reduction([
   [1, 1, 1],
   [-1, 0, 2],
@@ -18,7 +27,21 @@ reduced_basis_lll = basis_reduction.lll_reduction([
 ], 0.75)
 
 print(reduced_basis_lll)
-# [[0, 1, 0], [1, 0, 1], [-1, 0, 2]]
+# array([[ 0,  1,  0],
+#       [ 1,  0,  1],
+#       [-1,  0,  2]])
+```
+
+```python
+ortho_basis_gramshmidt = basis_reduction.gramshmidt([[3, 1], [2, 2]])
+
+print(ortho_basis_gramshmidt)
+# {'basis': array([[ 3. ,  1. ],
+#         [-0.4,  1.2]]),
+#  'mu_coeffs': array([0.8]),
+#  'orthonormalization': False
+# }
+
 ```
 
 ## Author
